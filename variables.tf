@@ -16,7 +16,7 @@ variable "vpc_endpoint_type" {
 
 variable "subnet_ids" {
   description = "A list of subnet IDs to create a network interface for the VPC Endpoint"
-  type        = list(any)
+  type        = list(string)
 }
 
 variable "vpc_endpoint_sg_name" {
@@ -33,7 +33,7 @@ variable "vpc_endpoint_sg_description" {
 
 variable "https_ingress_allowed_ipv4_cidr" {
   description = "A list of allowed IPV4 CIDRs for HTTPS (Port 443) ingress on the VPC Endpoint"
-  type        = list(any)
+  type        = list(string)
   default     = []
 }
 
