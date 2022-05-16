@@ -1,3 +1,7 @@
+# [Ably](https://www.ably.io)
+
+\_[Ably](https://ably.com) is the platform that powers synchronized digital experiences in realtime. Whether attending an event in a virtual venue, receiving realtime financial information, or monitoring live car performance data – consumers simply expect realtime digital experiences as standard. Ably provides a suite of APIs to build, extend, and deliver powerful digital experiences in realtime for more than 250 million devices across 80 countries each month. Organizations like Bloomberg, HubSpot, Verizon, and Hopin depend on Ably’s platform to offload the growing complexity of business-critical realtime data synchronization at global scale. For more information, see the [Ably documentation](https://ably.com/documentation).\_
+
 # Ably Privatelink Connections
 
 Use this module to configure private inter-VPC communication with Ably using AWS PrivateLink.
@@ -48,6 +52,16 @@ module "ably_privatelink" {
   egress_allowed_ipv6_cidr        = ["::/0"]
 }
 ```
+
+## Support, feedback and troubleshooting
+
+Please visit http://support.ably.io/ for access to our knowledgebase and to ask for any assistance.
+
+You can also view the community reported Github issues.
+
+## Contributing
+
+For guidance on how to contribute to this project, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Requirements
 
