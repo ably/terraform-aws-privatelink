@@ -6,7 +6,7 @@
 
 Use this module to configure private inter-VPC communication with Ably using AWS PrivateLink.
 
-\*\*NOTE:\*\* You need an active Ably account and will need to engage with Ably's SRE team to make use of this module.
+**NOTE:** You need an active Ably account and will need to engage with Ably's SRE team to make use of this module.
 
 For PrivateLink documentation, see [AWS PrivateLink](https://aws.amazon.com/privatelink)
 
@@ -28,7 +28,7 @@ Once you have successfully applied the module, you can verify that the VPC endpo
 
 ```bash
 curl -Iv http://{Your VPC Endpoint IP}/health.
-```  
+```
 You should receive an HTTP 200 status code with the body of the response containing the phrase 'Ably Up'.
 
 Documentation on troubleshooting AWS Interface VPC endpoints can be found here - [Troubleshooting Interface VPC Endpoints](https://aws.amazon.com/premiumsupport/knowledge-center/connect-endpoint-service-vpc/).
@@ -67,36 +67,46 @@ For guidance on how to contribute to this project, see [CONTRIBUTING.md](CONTRIB
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.20 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.17 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.20 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 4.17 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_security_group.vpc_endpoint](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
+| [aws_vpc_endpoint.ably](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| ably\_vpc\_service\_endpoint\_name | The VPC Service Endpoint Name. This value will be provided to you by Ably | `string` | n/a | yes |
-| egress\_allowed\_ipv4\_cidr | A list of allowed IPV4 CIDRs for egress on the VPC Endpoint | `list(string)` | `[]` | no |
-| egress\_allowed\_ipv6\_cidr | A list of allowed IPV6 CIDRs for egress on the VPC Endpoint | `list(string)` | `[]` | no |
-| http\_ingress\_allowed\_ipv4\_cidr | A list of allowed IPV4 CIDRs for HTTP (Port 80) ingress on the VPC Endpoint | `list(string)` | `[]` | no |
-| http\_ingress\_allowed\_ipv6\_cidr | A list of allowed IPV6 CIDRs for HTTP (Port 80) ingress on the VPC Endpoint | `list(string)` | `[]` | no |
-| https\_ingress\_allowed\_ipv4\_cidr | A list of allowed IPV4 CIDRs for HTTPS (Port 443) ingress on the VPC Endpoint | `list(string)` | `[]` | no |
-| https\_ingress\_allowed\_ipv6\_cidr | A list of allowed IPV6 CIDRs for HTTPS (Port 443) ingress on the VPC Endpoint | `list(string)` | `[]` | no |
-| subnet\_ids | A list of subnet IDs to create a network interface for the VPC Endpoint | `list(string)` | n/a | yes |
-| vpc\_endpoint\_sg\_description | Human readable description for the VPC Endpoint Security Group | `string` | `"Ably VPC Endpoint Security Group"` | no |
-| vpc\_endpoint\_sg\_name | Human readable name for the VPC Endpoint Security Group | `string` | `"ably-privatelink-vpc-endpoint-sg"` | no |
-| vpc\_endpoint\_sg\_tag\_name | Human readable name for your VPC Endpoint Security Group | `string` | `"ably-privatelink-vpc-endpoint-sg"` | no |
-| vpc\_endpoint\_type | The VPC Endpoint Type. Will always be Interface | `string` | `"Interface"` | no |
-| vpc\_id | The ID of your VPC | `string` | n/a | yes |
+| <a name="input_ably_vpc_service_endpoint_name"></a> [ably\_vpc\_service\_endpoint\_name](#input\_ably\_vpc\_service\_endpoint\_name) | The VPC Service Endpoint Name. This value will be provided to you by Ably | `string` | n/a | yes |
+| <a name="input_egress_allowed_ipv4_cidr"></a> [egress\_allowed\_ipv4\_cidr](#input\_egress\_allowed\_ipv4\_cidr) | A list of allowed IPV4 CIDRs for egress on the VPC Endpoint | `list(string)` | `[]` | no |
+| <a name="input_egress_allowed_ipv6_cidr"></a> [egress\_allowed\_ipv6\_cidr](#input\_egress\_allowed\_ipv6\_cidr) | A list of allowed IPV6 CIDRs for egress on the VPC Endpoint | `list(string)` | `[]` | no |
+| <a name="input_http_ingress_allowed_ipv4_cidr"></a> [http\_ingress\_allowed\_ipv4\_cidr](#input\_http\_ingress\_allowed\_ipv4\_cidr) | A list of allowed IPV4 CIDRs for HTTP (Port 80) ingress on the VPC Endpoint | `list(string)` | `[]` | no |
+| <a name="input_http_ingress_allowed_ipv6_cidr"></a> [http\_ingress\_allowed\_ipv6\_cidr](#input\_http\_ingress\_allowed\_ipv6\_cidr) | A list of allowed IPV6 CIDRs for HTTP (Port 80) ingress on the VPC Endpoint | `list(string)` | `[]` | no |
+| <a name="input_https_ingress_allowed_ipv4_cidr"></a> [https\_ingress\_allowed\_ipv4\_cidr](#input\_https\_ingress\_allowed\_ipv4\_cidr) | A list of allowed IPV4 CIDRs for HTTPS (Port 443) ingress on the VPC Endpoint | `list(string)` | `[]` | no |
+| <a name="input_https_ingress_allowed_ipv6_cidr"></a> [https\_ingress\_allowed\_ipv6\_cidr](#input\_https\_ingress\_allowed\_ipv6\_cidr) | A list of allowed IPV6 CIDRs for HTTPS (Port 443) ingress on the VPC Endpoint | `list(string)` | `[]` | no |
+| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | A list of subnet IDs to create a network interface for the VPC Endpoint | `list(string)` | n/a | yes |
+| <a name="input_vpc_endpoint_sg_description"></a> [vpc\_endpoint\_sg\_description](#input\_vpc\_endpoint\_sg\_description) | Human readable description for the VPC Endpoint Security Group | `string` | `"Ably VPC Endpoint Security Group"` | no |
+| <a name="input_vpc_endpoint_sg_name"></a> [vpc\_endpoint\_sg\_name](#input\_vpc\_endpoint\_sg\_name) | Human readable name for the VPC Endpoint Security Group | `string` | `"ably-privatelink-vpc-endpoint-sg"` | no |
+| <a name="input_vpc_endpoint_sg_tag_name"></a> [vpc\_endpoint\_sg\_tag\_name](#input\_vpc\_endpoint\_sg\_tag\_name) | Human readable name for your VPC Endpoint Security Group | `string` | `"ably-privatelink-vpc-endpoint-sg"` | no |
+| <a name="input_vpc_endpoint_type"></a> [vpc\_endpoint\_type](#input\_vpc\_endpoint\_type) | The VPC Endpoint Type. Will always be Interface | `string` | `"Interface"` | no |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The ID of your VPC | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| vpc\_endpoint\_dns\_hosted\_zone\_id | The Hosted Zone ID for your VPC Endpoint |
-| vpc\_endpoint\_dns\_name | DNS Name of your VPC Endpoint |
-
+| <a name="output_vpc_endpoint_dns_hosted_zone_id"></a> [vpc\_endpoint\_dns\_hosted\_zone\_id](#output\_vpc\_endpoint\_dns\_hosted\_zone\_id) | The Hosted Zone ID for your VPC Endpoint |
+| <a name="output_vpc_endpoint_dns_name"></a> [vpc\_endpoint\_dns\_name](#output\_vpc\_endpoint\_dns\_name) | DNS Name of your VPC Endpoint |
