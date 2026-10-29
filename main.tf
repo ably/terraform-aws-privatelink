@@ -38,11 +38,10 @@
 *
 * ```terraform
 * module "ably_privatelink" {
-*   source                          = "ably/terraform-aws-privatelink"
-*   version                         = "0.0.1"
+*   source                          = "github.com/ably/terraform-aws-privatelink?ref=v0.4.0"
 *   vpc_id                          = "vpc_id"
 *   ably_vpc_service_endpoint_name  = "vpc_service_endpoint"
-*   subnet_ids                      = ['subnet_id']
+*   subnet_ids                      = ["subnet_id"]
 *   vpc_endpoint_sg_name            = "ably-privatelink-vpc-endpoint-sg"
 *   vpc_endpoint_sg_description     = "Ably PrivateLink VPC Endpoint SG"
 *   https_ingress_allowed_ipv4_cidr = ["10.0.0.0/8"]
@@ -69,7 +68,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = ">= 5.0, < 7.0"
     }
   }
 }
