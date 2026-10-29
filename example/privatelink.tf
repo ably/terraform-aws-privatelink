@@ -1,6 +1,5 @@
 module "ably_privatelink" {
-  source                          = "app.terraform.io/ablyrealtime/privatelink/aws"
-  version                         = "0.1.0"
+  source                          = "github.com/ably/terraform-aws-privatelink?ref=v0.4.0"
   vpc_id                          = "ENTER_VPC_ID"
   ably_vpc_service_endpoint_name  = "ENTER_VPC_SERVICE_ENDPOINT"
   subnet_ids                      = ["ENTER_SUBNET_ID", "ENTER_SUBNET_ID", "ENTER_SUBNET_ID"]
